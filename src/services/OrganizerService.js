@@ -12,6 +12,9 @@ export default {
   getOrganizers() {
     return apiClient.get('/organizers')
   },
+  getOrganizer(id) {
+    return apiClient.get('/organizers/' + id)
+  },
   saveOrganizer(organizer) {
     return apiClient.post('/organizers', organizer)
   },

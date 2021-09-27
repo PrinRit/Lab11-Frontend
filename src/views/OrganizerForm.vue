@@ -2,11 +2,12 @@
   <div>
     <h1>Create an organizer</h1>
     <form @submit.prevent="saveOrganizer">
-      <!-- <h3>Name your organizer</h3>
-      <BaseInput v-model="organizer.name" type="text" label="Name" /> -->
+      
+      <h3>Name your organizer</h3>
+      <BaseInput v-model="organizer.name" type="text" label="name" />
 
       <h3>The image of the Organizer</h3>
-      <UploadImages :max="1" @changed="handleImages" />
+      <UploadImages  @changed="handleImages" :max="1" />
 
       <button type="submit">Submit</button>
     </form>
@@ -27,8 +28,7 @@ export default {
   data() {
     return {
       organizer: {
-        // id: '',
-        // name: '',
+        name: '',
         imageUrls: []
       },
       files: []
@@ -47,7 +47,7 @@ export default {
           .then((response) => {
             console.log(response)
             this.$router.push({
-              name: 'OrganizerLayout',
+              name: 'organizerLayout',
               params: { id: response.data.id }
             })
             this.GStore.flashMessage =
